@@ -2,7 +2,8 @@
   "routes":
   [
     { "path": "/", "callback": "application#index" },
-    { "path": "/upload", "method": "POST", "callback": "application#upload"}
+    { "path": "/upload", "method": "POST", "callback": "application#upload"},
+    { "path": "/upload2", "method": "POST", "callback": "handleupload#upload"}
   ],
   "filters":
   [
