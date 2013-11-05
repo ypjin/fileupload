@@ -1,0 +1,3 @@
+This folder contains scripts which can be used from client to test apps in cloud.
+The initial files are from Jeff English to test appcelerator.syncserver.server. It can be used as a base for other tests.
+It needs to be modified of course.

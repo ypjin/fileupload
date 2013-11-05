@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+X-Powered-By: Appcelerator Node.ACS
+x-powered-by: Appcelerator Node.ACS
+vary: Accept-Encoding
+content-type: application/json; charset=utf-8
+content-length: 46
+x-response-time: 2557ms
+set-cookie: connect.sid=s%3Ao5ZKxMdVsA2oMrnv3C8WwhYh.zLoQp8LOmZTje91i6E1ZjBRP3FVaR9oKfJjEq9OJh78; Path=/; Expires=Tue, 08 Oct 2013 18:33:53 GMT; HttpOnly
+date: Tue, 08 Oct 2013 08:33:53 GMT
+connection: close
+
