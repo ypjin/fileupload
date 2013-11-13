@@ -13,7 +13,12 @@
       { "path": "/logout", "method": "get", "callback": "session#logout" },
       { "path": "/signup", "method": "get", "callback": "chatroom#signup" },
       { "path": "/signup", "method": "post", "callback": "user#signup" },
-      { "path": "/chatroom", "method": "get", "callback": "chatroom#chatroom" }
+      { "path": "/chatroom", "method": "get", "callback": "chatroom#chatroom" },
+
+      { "path": "/hash", "callback": "bcrypt#hash" },
+      { "path": "/163", "callback": "content#get163"},
+      { "path": "/newpath", "callback": "content#newpath"}
+
   ],
   "filters":
   [

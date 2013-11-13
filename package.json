@@ -19,6 +19,10 @@
   },
   "preferGlobal": false,
   "dependencies": {
+      "bcrypt": "*",
+      "request": "*",
+      "colors": "*",
+      "formidable": "*"
   },
   "license":"",
   "private": true
