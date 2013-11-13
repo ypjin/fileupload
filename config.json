@@ -4,14 +4,23 @@
     { "path": "/", "callback": "application#index" },
     { "path": "/upload", "method": "POST", "callback": "application#upload"},
     { "path": "/upload2", "method": "POST", "callback": "handleupload#upload"},
-    { "path": "/getjson", "method": "GET", "callback": "application#outputJson"}
+    { "path": "/getjson", "method": "GET", "callback": "application#outputJson"},
+    { "path": "/global", "method": "GET", "callback": "globalvariable#showGlobal"},
+    { "path": "/newserver", "method": "GET", "callback": "newserver#newServer"},
+      { "path": "/home", "callback": "chatroom#home" },
+      { "path": "/login", "method": "get", "callback": "chatroom#login" },
+      { "path": "/login", "method": "post", "callback": "session#login" },
+      { "path": "/logout", "method": "get", "callback": "session#logout" },
+      { "path": "/signup", "method": "get", "callback": "chatroom#signup" },
+      { "path": "/signup", "method": "post", "callback": "user#signup" },
+      { "path": "/chatroom", "method": "get", "callback": "chatroom#chatroom" }
   ],
   "filters":
   [
-  	 { "path": "/", "callback": "" }
+      { "path": "/chatroom", "callback": "session_filter#checkSession" }
   ],
   "websockets":
   [
-  	{ "event": "", "callback": ""}
+      { "event": "msg", "callback": "chatroom#receiveMessage"}
   ]
 }
