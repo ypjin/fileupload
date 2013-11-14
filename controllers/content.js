@@ -1,5 +1,6 @@
 var colors = require('colors');
 var request = require('request');
+var util = require('util');
 
 function newpath(req, res) {
 
@@ -23,7 +24,12 @@ function get163(req, res) {
 
     })
 
+}
 
 
+function postData(req, res) {
+
+    console.log('Got post' + util.inspect(req.headers['content-length']));
+    res.send(req.body);
 
 }

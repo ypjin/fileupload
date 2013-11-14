@@ -3,21 +3,59 @@
   <head>
 	<title><%= title %></title>
     <link rel='stylesheet' href='/css/style.css' />
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script language="JavaScript">
+          var sentCount = 0;
+          function submitMore() {
+              var n = document.getElementById("numSubmit").value;
+              for(var i=0; i<n; i++) {
+                  ajaxSubmit();
+              }
+          }
+
+          function ajaxSubmit() {
+              $.ajax({
+                  url: '/post',
+                  type: 'post',
+                  dataType: 'text',
+                  data: $('form#poststh').serialize(),
+                  success: function(data) {
+                      sentCount++;
+                      $('#countDiv').text('Sending: ' + sentCount);
+                      //alert('succeeded');
+                  },
+                  error: function(error) {
+                      alert(error);
+                  }
+              });
+          }
+      </script>
   </head>
   <body>
   	<h2>Node.ACS</h2>
     <p><%= title %></p>
 
+    <br/>
+    <div>Handle formidable by bodyParser</div>
     <form action="/upload" method="post" enctype="multipart/form-data">
         <input type="file" name="myfile"/>
         <input type="submit">
     </form>
 
-
-
+    <br/>
+    <div>Handle formidable self</div>
     <form action="/upload2" method="post" enctype="multipart/form-data">
         <input type="file" name="myfile"/>
         <input type="submit">
+    </form>
+
+    <br/>
+    <div>Post something</div>
+    <form action="/post" id="poststh" method="post">
+        <textarea rows="15" cols="160" name="ps"></textarea>
+        <input type="submit"><br/>
+        Times to submit in one click: <input type="text" id="numSubmit"/>&nbsp;<div id="countDiv"></div><br/>
+        <input type="button" value="submit multiple times" onclick="submitMore()"/>
     </form>
 
   </body>

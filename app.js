@@ -4,7 +4,7 @@ var logger = require('acs').logger;
 global.abc = "value of global variable 'abc' set in app.js";
 
 // initialize app
-function start(app, express) {
+function start(app, express, io) {
 
     ACS.init('Pi3lvcEaaDvLZ7Fcixntx4PlJPjG7zb4');
     logger.setLevel('DEBUG');
@@ -19,9 +19,19 @@ function start(app, express) {
     //there is no need to use formidable directly
 //    app.use(express.bodyParser({defer:true}));
 
+    if(io) {
+        playWith(io);
+    }
 }
 
 // release resources
 function stop() {
 	
+}
+
+
+function playWith(io) {
+
+    console.log('===> got io object')
+    global.io = io;
 }

@@ -7,7 +7,7 @@
         <script>
         $(function(){
             //establish websocket connection with server
-            var iosocket = io.connect('http://localhost:8080');
+            var iosocket = io.connect('http://localhost:8080/<%= (room=='default'?'':room)%>');
             // var iosocket = io.connect('http://50a69e0da5f819807c002b87.cloudapp-qe.appcelerator.com');
             iosocket.on('connect', function () {
                 $('#incomingChatMessages').append($('<li class="alert"><span>Connected</span></li>'));
@@ -54,6 +54,7 @@
     </head>
     <body>
         <div id="ctnr">
+            <div class="alert">Welcome to room: <%= room%></div>
             <div id="ic"><span>Incoming Chat:</span></div>
             <div id="chat-ctnr">
                 <ul id="incomingChatMessages"></ul>
